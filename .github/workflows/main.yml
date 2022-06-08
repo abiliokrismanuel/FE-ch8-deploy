@@ -1,0 +1,60 @@
+name: Development workflow
+
+on:
+  push:
+    branches:
+      - main
+
+# jobs:
+#   deploy:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#       - name: Development Code
+#         uses: actions/checkout@v2
+#       - name: Use Node.js 17.x
+#         uses: actions/setup-node@v1
+#         with:
+#           node-version: 17.x
+#       - run: npm install
+#       - run: npm run build --if-present
+#       - name: Deploy to Heroku
+#         uses: akhileshns/heroku-deploy@v3.12.12
+#         with:
+#           args: deploy --dir=build --prod
+#           heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+#           heroku_app_name: 'fe-ch8-deploy'
+#           heroku_email: 'abilio.krismanuel@ti.ukdw.ac.id'
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - name : install depeden
+      run: |
+        npm ic 
+        npm run build --if-present
+
+  deploy: ## <-- this is the new stuff
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - uses: akhileshns/heroku-deploy@v3.12.12
+      with:
+        heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+        heroku_app_name: 'fe-ch8-deploy'
+        heroku_email: 'abilio.krismanuel@ti.ukdw.ac.id'
