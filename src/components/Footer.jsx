@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 export default function Footer(){
     
     return(
-    <footer className="flex flex-col lg:flex-row justify-around container lg:mx-auto mb-16 mt-32 pl-12">
+    <footer className="flex flex-col lg:flex-row justify-around container lg:mx-auto mb-16 mt-32 pl-12" data-testid="Footer">
         <div>
             <p>Jalan Suroyo No. 161 Mayangan Kota<br />Probolonggo 672000</p>
             <p className="mt-4">binarcarrental@gmail.com</p>

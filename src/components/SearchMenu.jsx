@@ -3,7 +3,7 @@ import GreenButton from "../components/printilan/GreenButton";
 
 export default function SearchMenu() {
   return (
-    <section className="flex gap-3 flex-col lg:flex-row justify-around lg:items-end relative z-50 bg-white -mt-12 lg:w-9/12 lg:mx-auto mx-7 rounded-lg shadow-lg p-6">
+    <section className="flex gap-3 flex-col lg:flex-row justify-around lg:items-end relative z-50 bg-white -mt-12 lg:w-9/12 lg:mx-auto mx-7 rounded-lg shadow-lg p-6" data-testid="Search-Menu">
       <div className="flex-1">
         <p className="mb-2 text-sm">Tipe Driver</p>
         <select

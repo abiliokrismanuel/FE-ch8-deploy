@@ -5,6 +5,7 @@ export const CardCar = ({ id, name, category, price, image }) => {
     <div
       className="bg-white mb-5 p-5 max-w-xs border-2 border-bgGrey rounded-lg"
       key={id}
+      data-testid="Card-Car"
     >
       <img className="pt-5 px-1 mb-10 w-72 h-48" src={image} alt="Car" />
 

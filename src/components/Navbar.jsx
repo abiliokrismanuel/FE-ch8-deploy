@@ -8,11 +8,11 @@ export default function Navbar() {
     setNavOpen(!isNavOpen);
   }
   return (
-    <nav className="navbar w-full z-50 bg-bgGrey">
+    <nav className="navbar w-full z-50 bg-bgGrey" data-testid="Navbar">
       <div className="container mx-auto flex flex-wrap justify-between items-center px-4 py-3 lg:space-x-4">
         <div className="flex">
           <Link to={`/`}>
-            <img src="/images/logo.png" alt="Logo" />
+            <img src="/images/logo.png" alt="Logoatas" />
           </Link>
         </div>
 
